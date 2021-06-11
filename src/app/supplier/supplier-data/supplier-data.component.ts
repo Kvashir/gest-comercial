@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-supplier-data',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./supplier-data.component.scss']
 })
 export class SupplierDataComponent implements OnInit {
+id!:string;
+  constructor(private route: ActivatedRoute) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(){
+    this.route.params.subscribe(params =>{
+      this.id = params.id;
+    })
+    
   }
-
 }
